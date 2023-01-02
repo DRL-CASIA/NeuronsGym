@@ -1,0 +1,17 @@
+odom_frame_id        : "odom"
+base_frame_id        : "base_link"
+global_frame_id      : "map"
+imu_odom_frame_id    : "imu_odom_link"
+laser_frame_id       : "base_laser_link"
+laser_topic_name     : "/undistortion_pointcloud"
+map_topic_name       : "map"
+init_pose_topic_name : "initialpose"
+map_file_name        : "/home/nvidia/ep_ws/src/icp_localization/map/map_pc_v2.pcd"
+#blue 0.5, 0.5, 1.57
+#red 7.5, 4.0, -1.57
+initial_pose_x : 0.5
+initial_pose_y : 0.5 
+initial_pose_a : 1.57
+
+
+

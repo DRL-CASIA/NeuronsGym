@@ -1,0 +1,19 @@
+<package>
+    <name>ep_bringup</name>
+    <version>1.0.0</version>
+    <description>
+        The roborts_bringup package provides quick bringup for RoboMaster AI Robot
+    </description>
+    <author>RoboMaster</author>
+    <maintainer email="robomaster@dji.com">RoboMaster</maintainer>
+    <license>GPL 3.0 </license>
+    <url>https://github.com/RoboMaster/RoboRTS</url>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+
+
+    <export>
+    </export>
+
+</package>

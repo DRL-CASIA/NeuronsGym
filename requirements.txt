@@ -1,0 +1,10 @@
+cloudpickle==2.0.0
+gym==0.20.0
+gym-unity==0.28.0
+mlagents-envs==0.28.0
+numpy==1.22.3
+opencv-python==4.5.5.64
+pillow==9.0.1
+protobuf==3.19.4
+scipy==1.8.0
+six==1.16.0

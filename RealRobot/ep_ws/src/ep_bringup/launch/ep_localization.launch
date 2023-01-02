@@ -1,0 +1,38 @@
+<launch>
+  <master auto="start"/>
+  <arg name="map" value="ICRA2021_0413_inf5"/>
+
+  <!--Load parameters for localization node  -->
+  <rosparam command="load" file="$(find icp_localization)/config/icp_localization-blue-1.yaml" />
+
+  <!-- Run the robot sdk interface -->
+  <node name="ep_ros_node" pkg="ep_bringup" type="ep_ros_node.py" respawn="false" />
+  
+
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find ep_bringup)/maps/$(arg map).yaml" respawn="false" />
+
+  <!-- Run the lidar node -->
+  <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+        <param name="serial_port"         type="string" value="/dev/ttyUSB0"/>  
+        <param name="serial_baudrate"     type="int"    value="1000000"/>
+        <param name="frame_id"            type="string" value="base_laser_link"/>
+        <param name="inverted"            type="bool"   value="false"/>
+        <param name="angle_compensate"    type="bool"   value="true"/>
+  </node>
+
+  <node name="base2laser" pkg="tf" type="static_transform_publisher" args="0.065 0 0.0 3.14 0 0 /base_link /base_laser_link 100"/>
+  
+  <node name="lidar_undistortion_2d_node" pkg="lidar_undistortion_2d" type="lidar_undistortion_2d_node">
+      <param name="scan_sub_topic" value="/scan"/>
+      <param name="scan_pub_topic" value="/undistortion_scan"/>
+      <param name="enable_pub_pointcloud" value="true"/>
+      <param name="pointcloud_pub_topic" value="/undistortion_pointcloud"/>
+      <param name="lidar_frame" value="base_laser_link"/>
+      <param name="odom_frame" value="odom"/>
+      <param name="lidar_scan_time_gain" value="1.0"/>
+  </node>
+  <node name="icp_localization_node" pkg="icp_localization" type="icp_localization_node" respawn="false" />
+
+</launch>
+
