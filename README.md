@@ -91,12 +91,13 @@ env = CogEnvDecoder(env_name="envs/cog_sim2real_env.x86_64", no_graphics=False, 
 # seed: random seed for generate position of the goals and the robots
 # force_sync: use time synchronization (True) or not (False)
 
-observation = env.reset(fri_cor=0.1, KP=8, KI=0, KD=2, VK1=0.375, M=3.4, Wheel_I=0.0125)
+observation = env.reset(fri_cor=0.1, KP=8, KI=0, KD=2, VK1=0.375, M=3.4, Wheel_I=0.0125, vx_dt=0.0, vy_dt=0.0, vw_dt=0.0)
 # fir_cor: friction factor
 # KP, KI, KD: parameters of PID
 # VK1: parameter of the motor(M3508I)
 # M: the mass of the robot
 # Wheel_I: the inertia of the wheel
+# vx_dt, vy_dt, vw_dt: the control delays
 
 action = env.action_space.sample()
 # action = [vx, vy, vw, fire]; vx: the velocity at which the vehicle moves forward [-2.0, 2.0], vy: the velocity at which the vehicle moves to the left[-2.0, 2.0], vw: Angular speed of the vehicle counterclockwise rotation [-pi/4, pi/4.0], fire: Shoot or not
