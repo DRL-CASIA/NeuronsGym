@@ -2,7 +2,7 @@
 
 ## NeuronsGym: A Hybrid Framework and Benchmark for Robot Tasks with Sim2Real Policy Learning
 
-Haoran Li, Mingjun Ma, Shasha Liu, Guangzheng Hu, Yaran Chen and Dongbin Zhao
+Haoran Li, Guangzheng Hu, Mingjun Ma, Shasha Liu, Yaran Chen and Dongbin Zhao
 
 ***
 NeuronsGym is a new hybrid framewrok that can be used for policy learning of robot tasks, covering a simulation platform that can be used for training policy, and a physical system for studying sim2real problems. 
